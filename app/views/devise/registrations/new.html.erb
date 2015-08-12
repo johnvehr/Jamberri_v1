@@ -1,6 +1,7 @@
 <div class="jamberri-signup">
   <div class="jamberri-signup-inner">
-    <h4>early access</h4>
+    <div class="jamberri-signup-form-wrapper container">
+    <h4>early access.</h4>
 <br>
 <%= form_for(resource, as: resource_name,:html => { :multipart => true }, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -15,7 +16,7 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
   </div>
-</div>
+
   <div class="row">
   <div class="field col s12 m6 l6">
     <%= f.label :password %>
@@ -37,7 +38,7 @@
       <%= f.label :avatar %><br />
       <%= f.file_field :avatar  %>
     </div>
-  
+
   </div>
   <br>
   <div class="actions">
@@ -45,4 +46,11 @@
   </div>
 <% end %>
   </div>
+
+  <div class="jamberri-signup-footer container">
+    <h4><strong>Comprehensive, Personalized</strong> community calendar that boils it all down to "Your <strong>JAM</strong>"</h4>
+    <p>Jackson Hole, Wyoming</p>
+    <%= image_tag 'logo-white.png' %>
+  </div>
+</div>
 </div>
