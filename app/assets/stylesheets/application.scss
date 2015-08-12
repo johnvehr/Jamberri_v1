@@ -1,1 +1,21 @@
 @import "materialize";
+
+$Jamberri:#9FBDC6;
+$Jamberri_dark:#367588;
+
+body, html {
+  height:100%;
+}
+
+h4 {
+  font-weight:300;
+  color:$Jamberri;
+}
+
+// sign up
+.jamberri-signup {
+  width:100%;
+  height:100%;
+  background:url('jam-background.png') center fixed no-repeat;
+  background-size:cover;
+}
