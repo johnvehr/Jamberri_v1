@@ -1,2 +1,8 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<div class="parallax-container">
+  <div class="parallax"><%= image_tag 'event-hands-up.png' %></div>
+  <div class="row parallax-inner-profile">
+    <div class="col s12 m4 l4 profile-link">
+      <%= image_tag(current_user.avatar.url(:thumb)) + current_user.username %>
+    </div>
+  </div>
+</div>
