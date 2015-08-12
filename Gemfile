@@ -14,6 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'materialize-sass'
 
 group :development, :test do
+  gem 'better_errors'
   gem 'sqlite3'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
@@ -23,4 +24,3 @@ end
 group :production do
   gem 'pg'
 end
-
