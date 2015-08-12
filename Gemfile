@@ -11,7 +11,11 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+#front end
 gem 'materialize-sass'
+
+#user auth
+gem "devise", :git => "http://github.com/plataformatec/devise.git"
 
 group :development, :test do
   gem 'better_errors'
