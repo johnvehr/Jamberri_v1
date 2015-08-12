@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'profiles/show'
-
-  get 'profile/show'
+  get '/:id', to: 'profiles#show', as: 'profile'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
