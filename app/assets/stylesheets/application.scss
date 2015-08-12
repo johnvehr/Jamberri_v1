@@ -19,6 +19,41 @@ input:focus{
   border-bottom:1px solid $Jamberri !important;
   box-shadow:0 1px 0 0 $Jamberri !important;
 }
+
+// nav
+nav ul li:hover, nav ul li.active{
+  background:none;
+
+}
+nav {
+  box-shadow:none;
+  background:none;
+  a{
+    color:$Jamberri_dark !important;
+    &:hover {
+      color:$Jamberri;
+    }
+  }
+
+  //background:rgba(73, 162, 162, 0.35); Jam color
+
+  .brand-logo {
+    text-transform: lowercase;
+    padding-top:10px;
+    padding-left:15px;
+    letter-spacing:10px;
+    font-weight:400;
+    max-width: 70px;
+    &:hover {
+      border-bottom:none;
+    }
+    img {
+      margin-right: 15px;
+      max-width: 75px;
+    }
+  }
+}
+
 // sign up
 .notice,.alert{
   display:none;
@@ -59,6 +94,43 @@ em {
     }
     img {
       max-width: 100px;
+    }
+  }
+}
+
+// parallax
+.parallax-container {
+  height:425px;
+  bottom:80px;
+}
+.parallax-inner-profile {
+  width:100%;
+  height:100%;
+  background:rgba(0, 0, 0, 0.5);
+  padding-left:45px;
+  padding-top:215px;
+  img {
+    border:5px solid $Jamberri;
+    border-radius: 50%;
+  }
+}
+.parallax-inner{
+  position:relative;
+  top:340px;
+  padding-left:45px;
+  padding-top:25px;
+  padding-bottom:10px;
+  h1 {
+    margin:0px;
+    font-size:3.3em;
+    color:#333;
+    text-transform:uppercase;
+    font-weight: bold;
+    small {
+      font-size:0.5em;
+      font-weight: lighter;
+      text-transform: lowercase;
+      color:rgba(255,255,255,0.8);
     }
   }
 }

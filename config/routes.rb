@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get '/:id', to: 'profiles#show', as: 'profile'
+  root 'jamberri#about'
+  get 'jamberri/about'
 
+  get '/:id', to: 'profiles#show', as: 'profile'
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
