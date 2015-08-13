@@ -106,9 +106,8 @@ em {
 .parallax-inner-profile {
   width:100%;
   height:100%;
-  background:rgba(0, 0, 0, 0.5);
+  background:rgba(255, 255, 255, 0.5);
   padding-left:45px;
-  padding-top:215px;
   img {
     border:5px solid $Jamberri;
     border-radius: 50%;
@@ -133,4 +132,18 @@ em {
       color:rgba(255,255,255,0.8);
     }
   }
+}
+
+// profile
+.profile-content-wrapper {
+  position:relative;
+  top:200px;
+}
+.profile-link:first-child {
+  color:$Jamberri;
+  margin-left:10px;
+  font-size:3em;
+  text-transform:lowercase;
+  letter-spacing:10px;
+  font-weight:400;
 }

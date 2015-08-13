@@ -1,8 +1,48 @@
+
 <div class="parallax-container">
   <div class="parallax"><%= image_tag 'event-hands-up.png' %></div>
   <div class="row parallax-inner-profile">
-    <div class="col s12 m4 l4 profile-link">
-      <%= image_tag(current_user.avatar.url(:thumb)) + current_user.username %>
+    <div class="row profile-content-wrapper">
+      <div class="col s12 m4 l4 profile-link">
+        <%= image_tag(current_user.avatar.url(:thumb)) + current_user.username %>
+      </div>
     </div>
   </div>
+</div>
+
+<div class="container">
+  <%= link_to 'Edit My Account', edit_user_registration_path %>
+  <% if @hosts %>
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>My Hosts</div>
+      <div class="collapsible-body collapsible-body-host">
+        <%= link_to 'Create a New Host', new_host_path(current_user.username) %><br>
+        <div class="row">
+          <% @hosts.each do |host| %>
+            <div class="col s12 m4 l4">
+              <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <%= image_tag 'sample-event.png',class: 'activator' %>
+                </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"><%= host.host_title %><i class="material-icons right">more_vert</i></span>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><%= host.host_title %><i class="material-icons right">close</i></span>
+                <%= link_to 'Add a New Event for this Host', new_host_event_path(current_user.username,host) %>
+                <% host.events.each do |event| %>
+                <ul>
+                  <li><%= event.event_title %></li>
+                </ul>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <% end %>
 </div>
