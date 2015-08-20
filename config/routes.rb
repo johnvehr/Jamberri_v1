@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  resources :hosts
-  root 'jamberri#about'
-  get 'jamberri/about'
 
+  root 'jamberri#about'
+
+  scope ':username' do
+    resources :hosts do
+      resources :events
+    end
+  end
+  #profile route
   get '/:id', to: 'profiles#show', as: 'profile'
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
