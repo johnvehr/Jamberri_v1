@@ -1,5 +1,6 @@
 class HostsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_filter :find_user
   before_action :set_host, only: [:show, :edit, :update, :destroy]
 
   # GET /hosts
@@ -15,7 +16,7 @@ class HostsController < ApplicationController
 
   # GET /hosts/new
   def new
-    @host = Host.new
+    @host = current_user.hosts.new
   end
 
   # GET /hosts/1/edit
@@ -25,12 +26,12 @@ class HostsController < ApplicationController
   # POST /hosts
   # POST /hosts.json
   def create
-    @host = Host.new(host_params)
+    @host = current_user.hosts.new(host_params)
 
     respond_to do |format|
       if @host.save
-        format.html { redirect_to @host, notice: 'Host was successfully created.' }
-        format.json { render :show, status: :created, location: @host }
+        format.html { redirect_to profile_path(current_user.username), notice: 'Host was successfully created.' }
+        format.json { render json: @host, status: :created, location: @host }
       else
         format.html { render :new }
         format.json { render json: @host.errors, status: :unprocessable_entity }
@@ -63,6 +64,10 @@ class HostsController < ApplicationController
   end
 
   private
+
+    def find_user
+      @user = User.find_by_username(params[:username])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_host
       @host = Host.find(params[:id])

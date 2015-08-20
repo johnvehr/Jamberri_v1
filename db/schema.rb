@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150820182126) do
+ActiveRecord::Schema.define(version: 20150820183746) do
+
+  create_table "events", force: :cascade do |t|
+    t.string   "event_title"
+    t.datetime "starts_at"
+    t.string   "time_zone"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "hosts", force: :cascade do |t|
     t.string   "host_title"

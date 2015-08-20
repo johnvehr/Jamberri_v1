@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :events
   root 'jamberri#about'
 
   scope ':username' do
