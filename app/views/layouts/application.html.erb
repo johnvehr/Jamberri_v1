@@ -17,7 +17,14 @@
 
 <script type="text/javascript">
  $(document).ready(function(){
-
+   var x = document.getElementById("demo");
+  function runThisTown(){
+    $.get("http://ipinfo.io", function(response) {
+      console.log(response.city, response.country);
+      x.innerHTML = response.city + ", <small>"+response.loc+"</small>";
+    }, "jsonp");
+  }
+  runThisTown();
    $(".button-collapse").sideNav();
    $('.parallax').parallax();
    $('.datepicker').pickadate({
