@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :set_host
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_filter :set_user
 
   # GET /events
   # GET /events.json
@@ -28,7 +31,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to profile_path(current_user.username, notice: 'Event was successfully created.' }
+        format.html { redirect_to profile_path(current_user.username), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -61,14 +64,29 @@ class EventsController < ApplicationController
     end
   end
 
+  def url_options
+    { username: params[:username] }.merge(super)
+  end
   private
+    def set_host
+      if signed_in? && current_user.username == params[:username]
+        @host = current_user.hosts.find(params[:host_id])
+      else
+        @host = @user.hosts.find(params[:host_id])
+      end
+    end
+
+    def set_user
+      @user = User.find_by_username(params[:username])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      @event = Event.find(params[:id])
+      @event = @host.events.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:event_title, :starts_at, :time_zone, :user_id, :host_id)
+      params.require(:event).permit(:event_title,:user_id, :host_id, :starts_at, :time_zone)
     end
 end

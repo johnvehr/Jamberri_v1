@@ -13,10 +13,9 @@
 <div class="container">
   <%= link_to 'Edit My Account', edit_user_registration_path %>
   <% if @hosts %>
-    <ul class="collapsible" data-collapsible="accordion">
-      <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>My Hosts</div>
-      <div class="collapsible-body collapsible-body-host">
+  <br>
+  <h4>My Hosts</h4>
+  <br>  
         <%= link_to 'Create a New Host', new_host_path(current_user.username) %><br>
         <div class="row">
           <% @hosts.each do |host| %>
@@ -41,8 +40,7 @@
           </div>
           <% end %>
         </div>
-      </div>
-    </li>
-  </ul>
+
+
   <% end %>
 </div>
