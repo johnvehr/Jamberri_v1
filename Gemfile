@@ -21,6 +21,9 @@ gem "simple_calendar", "~> 1.1.0"
 #user auth
 gem "devise", :git => "http://github.com/plataformatec/devise.git"
 
+#storage
+gem 'aws-sdk'
+
 group :development, :test do
   gem 'better_errors'
   gem 'sqlite3'
