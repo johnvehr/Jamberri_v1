@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :events
-  root 'jamberri#about'
+  root 'events#index'
 
   scope ':username' do
     resources :hosts do

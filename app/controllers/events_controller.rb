@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_filter :set_host
+  before_filter :set_host, except: :index
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_filter :set_user
 

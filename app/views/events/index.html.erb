@@ -1,31 +1,62 @@
-<p id="notice"><%= notice %></p>
+<div class="parallax-container">
+  <div class="parallax"><%= image_tag 'event-hands-up.png' %></div>
+  <div class="notice">
+    <p id="notice"><%= notice %></p>
+  </div>
+  <div class="parallax-inner">
+    <h1 id="demo"></h1>
+  </div>
+</div>
 
-<h1>Listing Events</h1>
+<div class="row calendar-row">
+  <div class="col s12">
 
-<table>
-  <thead>
-    <tr>
-      <th>Event title</th>
-      <th>Starts at</th>
-      <th>Time zone</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <ul class="collapsible" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">view_stream</i>Jam Curation</div>
+      <div class="collapsible-body collapsible-body-jam">
+        <div class="row">
+          <div class="col s12 m3 l3">
+            <p>Popular Local Jam Tags</p>
+            <ul>
+              <li>#SKIING</li>
+              <li>#BEER</li>
+              <li>#FREE</li>
+            </ul>
+          </div>
 
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.event_title %></td>
-        <td><%= event.starts_at %></td>
-        <td><%= event.time_zone %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <div class="col s12 m3 l3">
+            <p>See all Jam Tags</p>
+          </div>
+
+          <div class="col s12 m3 l3">
+            <p>Local Event Hosts</p>
+          </div>
+
+          <div class="col s12 m3 l3">
+            <p>Featured Events</p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+
+<%= month_calendar table: {class: 'responsive-table'},header: {class: "calendar-header"}, events: @events do |date, events| %>
+  <p class="date-number"><%= date.day %></p>
+
+  <% events.each do |event| %>
+    <div>
+      <p class="event-title"><%= event.event_title %></p>
+    </div>
+  <% end %>
+<% end %>
+
 
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+<% if signed_in? && current_user == @user %>
+<%= link_to 'New Event', new_host_event_path(current_user,@host) %>
+<% end %>
+</div>
+</div>

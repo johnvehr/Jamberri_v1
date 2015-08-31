@@ -149,3 +149,109 @@ em {
   letter-spacing:10px;
   font-weight:400;
 }
+
+//CALENDAR TOP HEADER
+.calendar-row{
+  position: relative;
+  bottom: 85px;
+  padding-left:40px;
+  padding-right:40px;
+}
+
+.collapsible{
+  border:none;
+  box-shadow:none;
+}
+
+
+.card-reveal {
+  a {
+    border:none !important;
+    padding:0 !important;
+  }
+}
+.collapsible-body-host {
+  a {
+    display:inline-block;
+    margin-top:15px;
+    margin-bottom:15px;
+    border:1px solid $Jamberri_dark;
+    padding:15px 20px;
+    color: $Jamberri;
+  }
+}
+.collapsible-body-jam {
+  .row {
+    .col {
+      padding:0px;
+      p {
+        background:$Jamberri;
+        border-bottom: 1px solid $Jamberri;
+        font-size:1.2em;
+        text-transform: uppercase;
+        font-weight: 300;
+        text-align:center;
+        padding:5px;
+        color:#FFF;
+      }
+      ul {
+        padding-left:5px;
+        li {
+          font-weight:1.1em;
+          font-weight:300;
+        }
+      }
+    }
+  }
+
+}
+.collapsible-header{
+  color:$Jamberri_dark;
+}
+.collapsible-header i{
+  color:$Jamberri_dark;
+}
+
+//CALENDAR
+.date-number {
+  color:$Jamberri_dark;
+  margin-top:0;
+}
+.event-title {
+  border:1px solid $Jamberri_dark;
+  background-color: $Jamberri;
+  padding: 10px 0px;
+  text-align: center;
+  color: $Jamberri_dark;
+}
+.calendar-header {
+  margin-top:20px;
+  a {
+display:none;
+background:$Jamberri;
+border:1px solid $Jamberri_dark;
+border-radius: 50%;
+padding-right: 14px;
+padding-left: 14px;
+padding-top: 7px;
+padding-bottom: 9px;
+font-size: 1em;
+margin-left: 10px;
+margin-right: 10px;
+color: white;
+  }
+  span {
+    font-size:3em;
+    text-transform:uppercase;
+    font-weight: 300;
+    color:$Jamberri_dark;
+  }
+}
+th{
+  font-weight: lighter;
+  color:$Jamberri;
+}
+td {
+  padding:50px 20px;
+  border-top:5px solid $Jamberri;
+}

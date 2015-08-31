@@ -15,6 +15,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "paperclip", "~> 4.3"
 gem 'materialize-sass'
 
+#calendar
+gem "simple_calendar", "~> 1.1.0"
+
 #user auth
 gem "devise", :git => "http://github.com/plataformatec/devise.git"
 
