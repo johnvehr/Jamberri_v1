@@ -15,7 +15,7 @@
   <% if @hosts %>
   <br>
   <h4>My Hosts</h4>
-  <br>  
+  <br>
         <%= link_to 'Create a New Host', new_host_path(current_user.username) %><br>
         <div class="row">
           <% @hosts.each do |host| %>
