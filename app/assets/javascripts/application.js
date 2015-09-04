@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.turbolinks
 //= require materialize-sprockets
 //= require_tree .
 
@@ -26,6 +27,7 @@ $(document).ready(function(){
    }, "jsonp");
  }
  runThisTown();
+
   $(".button-collapse").sideNav();
   $('.parallax').parallax();
   $('.datepicker').pickadate({

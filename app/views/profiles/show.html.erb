@@ -2,15 +2,19 @@
 <div class="parallax-container">
   <div class="parallax"><%= image_tag 'event-hands-up.png' %></div>
   <div class="row parallax-inner-profile">
-    <div class="row profile-content-wrapper">
-      <div class="col s12 m4 l4 profile-link">
-        <%= image_tag(current_user.avatar.url(:thumb)) + current_user.username %>
-      </div>
-    </div>
+
   </div>
 </div>
 
+<div class="row profile-content-wrapper">
+  <div class="col s12 ">
+    <div class="profile-link"><i><%= image_tag(current_user.avatar.url(:thumb)) %></i><%= current_user.username %></div>
+  </div>
+
+</div>
+
 <div class="container">
+
   <%= link_to 'Edit My Account', edit_user_registration_path %>
   <% if @hosts %>
   <br>

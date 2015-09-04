@@ -15,6 +15,12 @@ h4 {
 }
 
 // gloabl forms
+input:-webkit-autofill {
+  background:$Jamberri !important;
+}
+-webkit-autofill {
+  background:$Jamberri !important;
+}
 input:focus{
   border-bottom:1px solid $Jamberri !important;
   box-shadow:0 1px 0 0 $Jamberri !important;
@@ -23,7 +29,6 @@ input:focus{
 // nav
 nav ul li:hover, nav ul li.active{
   background:none;
-
 }
 nav {
   box-shadow:none;
@@ -138,16 +143,33 @@ em {
 
 // profile
 .profile-content-wrapper {
-  position:relative;
-  top:200px;
+  position: relative;
+  bottom:125px;
+  img {
+    border:5px solid $Jamberri;
+    border-radius:50%;
+  }
 }
-.profile-link:first-child {
+.profile-link {
+  display:block;
+  height: 3rem;
+  line-height: 6rem;
+  padding: 0 1rem;
   color:$Jamberri;
   margin-left:10px;
   font-size:3em;
   text-transform:lowercase;
   letter-spacing:10px;
   font-weight:400;
+  i {
+    width: 2rem;
+    font-size: 1.6rem;
+    line-height: 3rem;
+    display: block;
+    float: left;
+    text-align: center;
+    margin-right: 5rem;
+  }
 }
 
 //CALENDAR TOP HEADER
