@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   def set_time_zone
     Time.zone = current_user.time_zone
   end
-  
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :username << :avatar
   end

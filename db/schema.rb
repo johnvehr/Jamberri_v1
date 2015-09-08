@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150820183903) do
+ActiveRecord::Schema.define(version: 20150908173616) do
 
   create_table "events", force: :cascade do |t|
     t.string   "event_title"
@@ -29,9 +29,13 @@ ActiveRecord::Schema.define(version: 20150820183903) do
   create_table "hosts", force: :cascade do |t|
     t.string   "host_title"
     t.text     "host_bio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.integer  "user_id"
+    t.string   "host_avatar_file_name"
+    t.string   "host_avatar_content_type"
+    t.integer  "host_avatar_file_size"
+    t.datetime "host_avatar_updated_at"
   end
 
   add_index "hosts", ["user_id"], name: "index_hosts_on_user_id"
