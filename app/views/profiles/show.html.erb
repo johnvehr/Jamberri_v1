@@ -2,29 +2,24 @@
 <div class="parallax-container">
   <div class="parallax"><%= image_tag 'event-hands-up.png' %></div>
   <div class="row parallax-inner-profile">
-
   </div>
 </div>
 
 <div class="row profile-content-wrapper">
-  <div class="col s12 ">
+  <div class="col s12">
     <div class="profile-link"><i><%= image_tag(current_user.avatar.url(:thumb)) %></i><%= current_user.username %></div>
   </div>
-
 </div>
 
-<div class="container">
-
-  <%= link_to 'Edit My Account', edit_user_registration_path %>
+<div class="container profile-hosts">
   <% if @hosts %>
   <br>
-  <h4>My Hosts</h4>
+  <h4>My Hosts</h4> <%= link_to 'Create a New Host', new_host_path(current_user.username) %><br>
   <br>
-        <%= link_to 'Create a New Host', new_host_path(current_user.username) %><br>
         <div class="row">
           <% @hosts.each do |host| %>
             <div class="col s12 m4 l4">
-              <div class="card">
+              <div class="card small">
                 <div class="card-image waves-effect waves-block waves-light">
                   <%= image_tag 'sample-event.png',class: 'activator' %>
                 </div>
@@ -45,6 +40,53 @@
           <% end %>
         </div>
 
-
   <% end %>
+</div>
+
+
+<!-- calendar -->
+<div class="row calendar-row">
+  <div class="col s12">
+
+    <ul class="collapsible" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">view_stream</i>Jam Curation</div>
+      <div class="collapsible-body collapsible-body-jam">
+        <div class="row">
+          <div class="col s12 m3 l3">
+            <p>Popular Local Jam Tags</p>
+            <ul>
+              <li>#SKIING</li>
+              <li>#BEER</li>
+              <li>#FREE</li>
+            </ul>
+          </div>
+
+          <div class="col s12 m3 l3">
+            <p>See all Jam Tags</p>
+          </div>
+
+          <div class="col s12 m3 l3">
+            <p>Local Event Hosts</p>
+          </div>
+
+          <div class="col s12 m3 l3">
+            <p>Featured Events</p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+
+<%= month_calendar table: {class: 'responsive-table'},header: {class: "calendar-header"}, events: @events do |date, events| %>
+  <p class="date-number"><%= date.day %></p>
+
+  <% events.each do |event| %>
+    <div>
+      <p class="event-title"><%= event.event_title %></p>
+    </div>
+  <% end %>
+<% end %>
+</div>
 </div>

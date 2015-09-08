@@ -143,6 +143,10 @@ em {
 }
 
 // profile
+.profile-hosts {
+  position:relative;
+  bottom:230px;
+}
 .profile-content-wrapper {
   position: relative;
   bottom:170px;
@@ -170,6 +174,15 @@ em {
     float: left;
     text-align: center;
     margin-right: 5rem;
+  }
+}
+
+.profile-links {
+  float:left;
+  li {
+    float:left;
+    margin-right:15px;
+    border-right:1px solid $Jamberri;
   }
 }
 
