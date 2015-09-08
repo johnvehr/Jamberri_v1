@@ -107,6 +107,7 @@ em {
 
 // parallax
 .parallax-container {
+  border-bottom:20px solid $Jamberri;
   height:425px;
   bottom:80px;
 }
@@ -144,7 +145,7 @@ em {
 // profile
 .profile-content-wrapper {
   position: relative;
-  bottom:125px;
+  bottom:170px;
   img {
     border:5px solid $Jamberri;
     border-radius:50%;
