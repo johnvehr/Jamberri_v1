@@ -11,16 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908173616) do
+ActiveRecord::Schema.define(version: 20150908174825) do
 
   create_table "events", force: :cascade do |t|
     t.string   "event_title"
     t.datetime "starts_at"
     t.string   "time_zone"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "user_id"
     t.integer  "host_id"
+    t.string   "event_avatar_file_name"
+    t.string   "event_avatar_content_type"
+    t.integer  "event_avatar_file_size"
+    t.datetime "event_avatar_updated_at"
   end
 
   add_index "events", ["host_id"], name: "index_events_on_host_id"

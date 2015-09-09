@@ -11,41 +11,47 @@
   </div>
 </div>
 
-<div class="container profile-hosts">
-  <% if @hosts %>
-  <br>
-  <h4>My Hosts</h4> <%= link_to 'Create a New Host', new_host_path(current_user.username) %><br>
-  <br>
-        <div class="row">
-          <% @hosts.each do |host| %>
-            <div class="col s12 m4 l4">
-              <div class="card small">
-                <div class="card-image waves-effect waves-block waves-light">
-                  <%= image_tag host.host_avatar.url ,class: 'activator' %>
+<div class="row profile-hosts">
+  <div class="col s12">
+    <% if @hosts %>
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">view_stream</i>My Hosts</div>
+          <div class="collapsible-body collapsible-body-jam">
+            <%= link_to 'Create a New Host', new_host_path(current_user.username), class: 'host-new' %>
+            <div class="row">
+              <% @hosts.each do |host| %>
+              <div class="col s12 m4 l4">
+                <div class="card small">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <%= image_tag host.host_avatar.url ,class: 'activator' %>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator"><%= host.host_title %><i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title"><%= host.host_title %><i class="material-icons right">close</i></span>
+                    <%= link_to 'Add a New Event for this Host', new_host_event_path(current_user.username,host) %>
+                    <% host.events.each do |event| %>
+                    <ul class="host-event-list">
+                      <li><%= event.event_title %></li>
+                    </ul>
+                    <% end %>
+                  </div>
                 </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4"><%= host.host_title %><i class="material-icons right">more_vert</i></span>
               </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4"><%= host.host_title %><i class="material-icons right">close</i></span>
-                <%= link_to 'Add a New Event for this Host', new_host_event_path(current_user.username,host) %>
-                <% host.events.each do |event| %>
-                <ul>
-                  <li><%= event.event_title %></li>
-                </ul>
-                <% end %>
-              </div>
+              <% end %>
             </div>
           </div>
-          <% end %>
-        </div>
-
-  <% end %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
 </div>
 
 
 <!-- calendar -->
-<div class="row calendar-row">
+<div class="row calendar-row-profile">
   <div class="col s12">
 
     <ul class="collapsible" data-collapsible="accordion">
